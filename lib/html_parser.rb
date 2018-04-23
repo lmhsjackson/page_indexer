@@ -1,7 +1,7 @@
 require 'open-uri'
 require 'nokogiri'
 
-class HtmlIndexer
+class HtmlParser
   attr_reader :url
   attr_accessor :full_html_page
 

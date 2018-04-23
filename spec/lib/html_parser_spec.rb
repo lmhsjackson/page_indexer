@@ -1,20 +1,20 @@
 require 'rails_helper'
-require 'html_indexer'
+require 'html_parser'
 
-describe HtmlIndexer do
-  let(:indexer) { HtmlIndexer.new('www.google.com') }
+describe HtmlParser do
+  let(:parser) { HtmlParser.new('www.google.com') }
 
   before do
-    allow(indexer).to receive(:open).and_return string_page
+    allow(parser).to receive(:open).and_return string_page
   end
 
   describe 'tags_by_css' do
     it 'lists all the tags in the document' do
-      expect(indexer.tags_by_css('a').count).to eq(2)
+      expect(parser.tags_by_css('a').count).to eq(2)
     end
 
     it 'brings only selected tags' do
-      indexer.tags_by_css('a').each do |element|
+      parser.tags_by_css('a').each do |element|
         expect(element.name).to eq('a')
       end
     end
@@ -22,7 +22,7 @@ describe HtmlIndexer do
 
   describe '#document' do
     it 'returns the  nokogiri html document format of the page' do
-      expect(indexer.document).to be_a(Nokogiri::HTML::Document)
+      expect(parser.document).to be_a(Nokogiri::HTML::Document)
     end
   end
 
