@@ -8,13 +8,13 @@ describe HtmlIndexer do
     allow(indexer).to receive(:open).and_return string_page
   end
 
-  describe 'a_tags' do
-    it 'lists all the a tags in the document' do
-      expect(indexer.a_tags.count).to eq(2)
+  describe 'tags_by_css' do
+    it 'lists all the tags in the document' do
+      expect(indexer.tags_by_css('a').count).to eq(2)
     end
 
-    it 'brings only a tags elements' do
-      indexer.a_tags.each do |element|
+    it 'brings only selected tags' do
+      indexer.tags_by_css('a').each do |element|
         expect(element.name).to eq('a')
       end
     end

@@ -9,14 +9,11 @@ class HtmlIndexer
     @url = url
   end
 
-  def a_tags
-    document.css 'a'
+  def tags_by_css(selector)
+    document.css selector
   end
-
-  # private
 
   def document
     full_html_page ||= Nokogiri::HTML(open(url))
   end
-
 end
