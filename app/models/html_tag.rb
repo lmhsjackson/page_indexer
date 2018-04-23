@@ -1,0 +1,2 @@
+class HtmlTag < ApplicationRecord
+end
