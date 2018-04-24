@@ -8,7 +8,7 @@ describe HtmlParser do
   let(:parser) { HtmlParser.new('www.google.com') }
 
   before do
-    allow(parser).to receive(:document).and_return parsed_elements
+    allow(parser).to receive(:document).and_return document
   end
 
   describe 'tags_by_css' do
