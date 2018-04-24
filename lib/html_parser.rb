@@ -13,6 +13,8 @@ class HtmlParser
     document.css selector
   end
 
+  private
+
   def document
     full_html_page ||= Nokogiri::HTML(open(url))
   end
